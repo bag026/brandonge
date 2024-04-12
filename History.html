@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="ico.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+
+    <title>The History of Hyperlinks</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    position: relative; /* Needed to position the pseudo-element correctly */
+    min-height: 100vh; /* Ensure the body takes at least the height of the viewport */
+    
+    
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('11.PNG'); /* Path to your image */
+    
+    background-position: center; /* Center the background image */
+    filter: blur(2px); /* Apply the blur effect */
+    z-index: -1; /* Ensure the background is behind the content */
+}
+.image-container {
+    position: relative;
+    width: fit-content;
+    margin: auto;
+}
+
+.image-container img {
+    width: 50%;
+    height: auto;
+    display: block; /* Ensures the image takes up the full width of its container */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
+    color: white;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+}
+
+.image-container:hover .overlay {
+    visibility: visible;
+    opacity: 1;
+}
+
+.technology {
+    cursor: pointer;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.technology i {
+    margin-right: 10px;
+}
+
+.content-hidden {
+    display: none;
+    padding: 10px;
+    border-left: 3px solid #ccc;
+    margin: 5px 0 15px 0;
+}
+
+.technology h3 {
+    display: inline;
+}
+
+/* Optional: Add hover effect for interactivity */
+.technology:hover {
+    background-color: #f9f9f9;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+header {
+    font-family: 'Lobster', cursive; /* Apply the Lobster font */
+    background: linear-gradient(to left, #6a11cb 0%, #0f0f0f 100%); /* Modern gradient background */
+    color: #21b4f8; /* White text color for better contrast */
+    text-align: center;
+    padding: 20px 0; /* Increased padding for better spacing */
+    animation: fadeIn 1s ease-out; /* Fade-in animation */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    margin: 0;
+    font-size: 1em; /* Larger font size for the title */
+    font-weight: bold; /* Making the text bold */
+    font-style: italic;
+}
+.icon-bar a {
+    margin: 0 10px; /* Adds some space around the icons */
+    color: #1d1d1d; /* Icon color */
+    font-size: 20px; /* Icon size */
+    padding: 10px; /* Padding for larger clickable area */
+    display: inline-block; /* Ensure padding affects layout */
+}
+
+.icon-bar a:hover {
+    color: #636161; /* Icon color on hover */
+    padding: 10px; /* Padding for larger clickable area */
+    display: inline-block; /* Ensure padding affects layout */
+}
+
+h2 {
+    color: #3498db; /* Adds color to headers */
+    border-bottom: 2px solid #efefef; /* Adds a subtle line under the header */
+    padding-bottom: 5px; /* Adds space under the header */
+    margin-bottom: 20px; /* Adds space between the header and paragraph */
+}
+
+section {
+    margin: 20px auto; /* Centers the section and adds vertical space */
+    max-width: 800px; /* Limits the width for better readability */
+    padding: 20px; /* Adds internal spacing */
+    background-color: #f9f9f9; /* Light background for the section */
+    border-radius: 18px; /* Softens the corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+iframe {
+    border: 1px solid #f3f2f2; /* Removes the border */
+    /* Or, if you want to specify a border, you can use something like '1px solid #ccc' */
+}
+
+p {
+    font-size: 18px; /* Increases the font size for readability */
+    /* Justifies the text for a clean look */
+    line-height: 1.6; /* Increases line height for better readability */
+    color: #000000; /* Darker text color for contrast */
+}
+.timeline-contentright .timeline-image {
+    width: 100%; /* Adjust the width as needed */
+    max-width: 300px; /* Max width to ensure the image is not too large */
+    height: auto; /* Maintain aspect ratio */
+    border: 2px solid #ddd; /* Adjust the border color and size as needed */
+    border-radius: 4px; /* Optional: adds rounded corners */
+    display: block; /* Ensures the image does not align with text */
+    margin: 0 auto 10px; /* Centers the image and adds space below */
+}
+
+.video-container {
+    position: relative;
+    width: 70%; /* Adjust the width as needed */
+    padding-bottom: 28.125%; /* Adjust based on the width to maintain aspect ratio, this is for a 16:9 aspect ratio */
+    margin: 20px 0; /* Add some space around the video */
+    border: 4px solid #ccc; /* Add a border */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: adds a shadow for better visibility */
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+footer {
+    background: #333;
+    color: #fffefe;
+    text-align: center;
+    padding: 10px 0;
+    
+    position: sticky;
+    
+    bottom: 0;
+    width: 100%;
+    clear: both; /* Ensures that the footer clears previous floated elements */
+  
+}
+footer p {
+    margin: 0; /* Removes default margin from the paragraph */
+    padding: 0; /* Adjust if you need padding */
+    font-style: italic; /* Makes the text italic */
+    font-weight: bold; 
+}
+
+/* Style the dropdown button */
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 26px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s; 
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: 0%;
+    background-color: #fdfdfd;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.interactive-section {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.interactive-section:hover {
+    transform: scale(1.05);
+}
+.interactive-section h3, .interactive-section p {
+     /* Center aligns the text */
+    font-style: italic; /* Makes the text italic */
+    line-height: 1.6; /* Increases line height for better readability */
+    margin: 10px 0; /* Adds vertical space around the text */
+    color: #333; /* Optional: Sets a readable text color */
+}
+
+.content-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+    transition: transform 0.3s ease;
+    border: 4px solid #020202;
+}
+
+.content-hidden {
+    display: none;
+    padding: 10px;
+    text-align: justify;
+}
+
+/* Animation for expanding content */
+@keyframes slideDown {
+    from { height: 0; opacity: 0; }
+    to { height: auto; opacity: 1; }
+}
+
+/* Apply animation to content when it's shown */
+.content-visible {
+    animation: slideDown 0.5s ease-out;
+}
+
+
+
+
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  background-color: #ddd;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1px;
+}
+
+.timeline-container {
+  padding: 10px 40px;
+  position: relative;
+  background-color: #dddddd00;
+  width: 50%;
+}
+
+.left {
+  left: 0%;
+}
+
+.right {
+  left: 50%;
+}
+
+.timeline-container::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: 65px;
+  background-color: #5f5b5b;
+  border: 2px solid #85ee8a;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.right::after {
+  left: -10px;
+}
+
+.timeline-content {
+  padding: 10px;
+  background-color: #696666;
+  position: relative;
+  border-radius: 26px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+  width: 80%; /* Adjust width to control the block size */
+  margin: 10px 10px;
+}
+.timeline-content p {
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #000000;
+}
+.timeline-content img {
+    width: 100%; /* Makes the image responsive */
+    max-width: 300px; /* Limits the maximum width */
+    height: auto; /* Maintains the aspect ratio */
+    border: 4px solid #ddd; /* Adds a border with a light grey color */
+    border-radius: 4px; /* Adds rounded corners */
+    display: block; /* Ensures the image is on its own line */
+    margin: 10px auto; /* Centers the image and adds vertical spacing */
+}
+
+
+@media screen and (max-width: 600px) {
+  .timeline-container {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 15px;
+  }
+
+  .left, .right {
+    left: 0;
+  }
+
+  .timeline-container::after {
+    left: 500px;
+  }
+}
+
+
+
+.dropbtn i {
+    animation: pulse 2s infinite;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    font-style: italic;
+    font-weight: bold;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+   
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1;
+    color: #a1e9c5;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+
+.history-outro {
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .history-outro .heading-container h3 {
+        font-size: 1.75em;
+        font-weight: 700;
+    }
+
+    .history-outro .paragraph {
+        font-size: 1.25em;
+        font-weight: 400;
+        line-height: 1.6;
+    }
+    #topButton {
+        display: inline-block; /* Only takes up necessary space */
+        background-color: #4CAF50; /* A green background, change as needed */
+        color: white; /* White text */
+        border: none; /* No border */
+        padding: 10px 20px; /* Padding inside the button */
+        text-align: center; /* Center the text inside */
+        text-decoration: none; /* No underline */
+        font-size: 14px; /* Text size */
+        cursor: pointer; /* Pointer cursor on hover */
+        border-radius: 5px; /* Rounded corners */
+        position: fixed; /* Fixed position */
+        bottom: 20px; /* 20px from the bottom */
+        right: 30px; /* 30px from the right */
+        z-index: 99; /* Ensure it's on top of other elements */
+    }
+
+
+      </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+
+<body>
+  
+    <header>
+        <h1>The History of Hyperlinks</h1>
+    </header>
+
+    <div class="icon-bar">
+        <a href="index.html"><i class="fas fa-home"></i></a> <!-- Home icon -->
+        <a href="mailto:tersorbeauge@gmail.com"><i class="fas fa-envelope"></i></a> <!-- Email icon -->
+        <a href="Biography.html"><i class="fas fa-user"></i></a>
+        <!-- Add more icons as needed -->
+    </div>
+
+    <div class="dropdown">
+      <button class="dropbtn"><i class="fas fa-bars"></i></button>
+      <div class="dropdown-content">
+          <a href="index.html">Conception</a>
+          <a href="History.html">History</a>
+          <a href="Biography.html">Biography</a>
+      </div>
+  </div>
+
+  
+
+    <section id="introduction">
+        <h2>Introduction to Hyperlinks</h2>
+        <p>The evolution of hyperlinks presents an intriguing exploration of the development 
+            and use of digital communication on the web.
+            From their humble beginnings to their widespread use today, hyperlinks have played a crucial role in connecting web pages and facilitating navigation for users.
+            In the early days of the internet, hyperlinks were simple text-based links that allowed users to move from one webpage to another with just a click. As technology advanced, the introduction of graphical user interfaces and HTML coding made it possible to create more visually appealing and interactive hyperlinks.
+            Here is a simplified timeline that focuses on important technologies, applications, and milestones in the history of hyperlinks.</p>
+    </section>
+
+    <section id="key-technologies" class="timeline">
+        <h2>Timeline of Hyperlinks</h2>
+        <div class="timeline-container left">
+            <div class="timeline-content">
+                <h3>1945</h3>
+                <div class="image-container">
+                <img src="bush.jpg" alt="Vannevar Bush">
+                <div class="overlay">Vannevar Bush</div>
+                </div>
+                <p>The first introduced by Vannevar Bush in his essay "As We May Think," 
+                    where he described a hypothetical machine called the "Memex" that stored and linked information.</p>
+            </div>
+        </div>
+
+        <div class="timeline-container right">
+            <div class="timeline-content">
+                <h3>1960s</h3>
+                <p>Ted Nelson coined the term "hypertext" and began working 
+                    on Project Xanadu, an early attempt to create a network of interconnected documents.</p>
+            </div>
+        </div>
+        <!-- Add more timeline-container divs here for each year or event -->
+        <div class="timeline-container left">
+            <div class="timeline-content">
+                <h3>1980</h3>
+                <p>Tim Berners-Lee, working at CERN, proposed a project based on the concept of hypertext, 
+                    to facilitate sharing and updating information among researchers.</p>
+            </div>
+        </div>
+
+        <div class="timeline-container right">
+            <div class="timeline-content">
+                <h3>1989-1990</h3>
+                <div class="image-container">
+                <img src="Lee.jpg" alt="Tim Berners-Lee">
+                <div class="overlay">Tim Berners-Lee</div>
+                </div>
+                <p>Tim Berners-Lee wrote the first web browser and server software,
+                     creating the foundation for the World Wide Web. The concept of hyperlinks was central to this, allowing documents to be interconnected through clickable links.</p>
+            </div>
+        </div>
+
+        <div class="timeline-container left">
+            <div class="timeline-content">
+                <h3>1993</h3>
+                <p>The release of the Mosaic web browser popularized the World Wide Web and the use of hyperlinks among the general public.</p>
+            </div>
+        </div>
+
+        <div class="timeline-container right">
+            <div class="timeline-content">
+                <h3>Mid-1990s</h3>
+                <p>The introduction of JavaScript allowed for more dynamic web pages, enhancing the functionality and interactivity of hyperlinks.</p>
+            </div>
+        </div>
+
+        <div class="timeline-container left">
+            <div class="timeline-content">
+                <h3>Late 1990s - 2000s</h3>
+                <p>The evolution of search engines like Google transformed how hyperlinks were used and valued, emphasizing the importance of linking for search engine optimization (SEO).</p>
+            </div>
+        </div>
+
+        <div class="timeline-container right">
+            <div class="timeline-content">
+                <h3>2000s</h3>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/cw0jRD7mn1k" title="The History of Social Media" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <p>The rise of social media platforms like Facebook and Twitter further evolved the use of hyperlinks, 
+                    making it easy to share links to a wide audience</p>
+            </div>
+        </div>
+
+
+        <div class="timeline-container left">
+            <div class="timeline-content">
+                <h3>2010s</h3>
+                <p>The adoption of HTML5 introduced more semantic elements to web design, allowing for more structured and meaningful linking within content.</p>
+            </div>
+        </div>
+
+        <div class="timeline-container right">
+            <div class="timeline-content">
+                <h3>2020s-Current</h3>
+                <p>The ongoing development of the semantic web and AI technologies continues to evolve 
+                    how hyperlinks are used, making the web more interconnected and intelligent.</p>
+            </div>
+        </div>
+
+
+
+        
+    </section>
+    
+
+    <section id="evolution">
+        <h2>Technologies and Applications</h2>
+        <div class="technology" onclick="toggleVisibility('ai-content')">
+            <i class="fas fa-brain"></i>
+            <h3>Artificial Intelligence and Machine Learning</h3>
+        </div>
+        <div id="ai-content" class="content-hidden">
+            <p>AI and machine learning technologies are revolutionizing data analysis,
+                 decision-making processes, and personalized user experiences through all develpment process. 
+                 They power everything from recommendation systems in e-commerce to predictive analytics in healthcare, enabling more efficient and informed decisions.</p>
+        </div>
+    
+        <div class="technology" onclick="toggleVisibility('blockchain-content')">
+            <i class="fas fa-link"></i>
+            <h3>Blockchain Technology</h3>
+        </div>
+        <div id="blockchain-content" class="content-hidden">
+            <p>The main its role in cryptocurrency, blockchain technology is 
+                expanding its reach to various sectors. It offers a secure and decentralized way to record 
+                transactions, enhancing transparency and reducing the risk of fraud in areas such as finance, supply chain management, and voting systems.</p>
+        </div>
+    
+        <div class="technology" onclick="toggleVisibility('iot-content')">
+            <i class="fas fa-network-wired"></i>
+            <h3>Internet of Things (IoT)</h3>
+        </div>
+        <div id="iot-content" class="content-hidden">
+            <p> IoT to relateds everyday devices to the internet, allowing them to send and receive data. This interconnectivity enables smart homes, where appliances can communicate with each other and be remotely controlled, and smart cities, 
+                where various sensors and devices improve urban management and public services.</p>
+        </div>
+    
+        <div class="technology" onclick="toggleVisibility('arvr-content')">
+            <i class="fas fa-vr-cardboard"></i>
+            <h3>Augmented Reality (AR) and Virtual Reality (VR)</h3>
+        </div>
+        <div id="arvr-content" class="content-hidden">
+            <p>AR and VR are transforming entertainment, education, and training by providing immersive experiences. For example, AR apps can overlay information on real-world objects, enhancing learning and shopping experiences, 
+                while VR can simulate environments for training, gaming, or virtual tours.</p>
+        </div>
+    
+        <div class="technology" onclick="toggleVisibility('cloud-content')">
+            <i class="fas fa-cloud"></i>
+            <h3>Cloud Computing</h3>
+        </div>
+        <div id="cloud-content" class="content-hidden">
+            <p>The transition to cloud computing provides expandable storage, processing, and computational capabilities
+                thereby increasing the accessibility of cutting-edge technologies for businesses of varying sizes.</p>
+        </div>
+    </section>
+
+    <section id="current-use">
+        <h2>Current Use in Presentation and Organization</h2>
+        
+        <div class="interactive-section" onclick="toggleContent('enhanced-navigation')">
+            <h3>Enhanced Navigation</h3>
+            <img src="backlinks.png" alt="Enhanced Navigation" class="content-image">
+            <div id="enhanced-navigation" class="content-hidden">
+                <p> Hyperlinks have evolved from simple text-based references to dynamic navigation tools.
+                     They now include interactive menus, breadcrumb trails, and context-sensitive links that improve user navigation and the overall user experience on websites and applications.</p>
+            </div>
+        </div>
+        
+        <div class="interactive-section" onclick="toggleContent('deep-linking')">
+            <h3>Deep Linking in Mobile Apps</h3>
+            <img src="deeplinking.png" alt="Deep Linking in Mobile Apps" class="content-image">
+            <div id="deep-linking" class="content-hidden">
+                <p>In the mobile domain, deep linking allows links to direct users to specific content within apps, similar to how web links navigate to specific web pages. This enhances the integration between web-based and app-based content, providing a seamless user experience across platforms.</p>
+            </div>
+        </div>
+        
+        <div class="interactive-section" onclick="toggleContent('semantic-linking')">
+            <h3>Semantic Linking</h3>
+            <img src="cyber.png" alt="Semantic Linking" class="content-image">
+            <div id="semantic-linking" class="content-hidden">
+                <p>Beyond basic navigation, hyperlinks are increasingly used for semantic linking, where links are established based on the meaning and context of content. This supports richer interconnections between related pieces of information, facilitating more nuanced and sophisticated information discovery and knowledge building.</p>
+            </div>
+        </div>
+        
+        <div class="interactive-section" onclick="toggleContent('data-organization')">
+            <h3>Data Organization and Management</h3>
+            <img src="meta.png" alt="Data Organization and Management" class="content-image">
+            <div id="data-organization" class="content-hidden">
+                <p>In data-driven environments, hyperlinks are used to connect related datasets, metadata, and digital assets, improving data discoverability and management. This is crucial in research, digital libraries, and information systems where efficient access to related information is key.</p>
+            </div>
+        </div>
+        
+        <div class="interactive-section" onclick="toggleContent('interactive-content')">
+            <h3>Interactive and Multimedia Content</h3>
+            <img src="Interactive.jpg" alt="Interactive Content" class="content-image">
+            <div id="interactive-content" class="content-hidden">
+                <p>Hyperlinks play a crucial role in interactive and multimedia materials, 
+                    allowing users to interact with different types of media—such as videos, 
+                    images, and audio just clicking on links. This level of interactivity enriches the depth and liveliness of digital content, providing more captivating and immersive experiences.</p>
+            </div>
+        </div>
+    </section>
+
+
+<section class="history-outro">
+    <div class ="heading-container">
+        <h3>In Summary</h3>
+    </div>
+    <p class ="paragraph">
+        The development of hyperlinks mirrors the development of the internet—from a group of unchanging 
+        documents to a lively, engaging, and interconnected digital environment. Hyperlinks have evolved from basic text links to intricate interactive features that influence our engagement with digital content.
+    </p>
+</section>
+    
+
+    <footer>
+        <button onclick="scrollToTop()" id="topButton" title="Go to top">Top</button>
+        <p>Copyright © 2024 Written with passion by Brandon Ge.</p>
+    </footer>
+
+    
+
+    <script src="script.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('section');
+  
+      sections.forEach(section => {
+          section.addEventListener('click', () => {
+              section.style.backgroundColor = '#f4f4f4'; // Changes background on click
+          });
+      });
+  });
+  </script>
+
+  <script>
+  document.querySelector('.dropbtn').addEventListener('click', function() {
+    document.querySelector('.dropdown-content').classList.toggle('show');
+});
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+};
+  
+  </script>
+
+  <script>
+
+    function toggleVisibility(contentId) {
+        var content = document.getElementById(contentId);
+        if (content.style.display === "none" || content.style.display === '') {
+            content.style.display = "block";
+        } else {
+            content.style.display = "none";
+        }
+    }
+
+  </script>
+
+  <script>
+    function toggleContent(sectionId) {
+        var section = document.getElementById(sectionId);
+        if (section.style.display === "none" || section.style.display === '') {
+            section.style.display = "block";
+            section.className = "content-visible";
+        } else {
+            section.style.display = "none";
+            section.className = "content-hidden";
+        }
+    }
+
+    </script>
+    <script>
+        function scrollToTop() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+        </script>
+        
+    
+
+</body>
+</html>

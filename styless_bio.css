@@ -1,0 +1,253 @@
+
+body{
+    margin: 0;
+    padding: 0;
+    color: #fff;
+  }
+.main-content {
+  font-family: 'Roboto', sans-serif; 
+  padding: 80px; /* Adds padding to the content */
+  font-size: 1em; /* Adjust the font size as needed */
+  line-height: 1.6;
+}
+.site-footer {
+    width: 100%;
+    background-color: #333; /* Dark background for the footer */
+    color: white; /* White text color */
+    text-align: center;
+    padding: 10px 0;
+    position: fixed; /* Keep the footer at the bottom */
+    bottom: 0; /* Aligns the footer at the bottom */
+    left: 0;
+    font-style: normal; /* Ensures footer text is not italic if body text is */
+}
+
+/* You might want to add additional styles for <p> inside the footer if needed */
+.site-footer p {
+margin: 0; /* Removes default margin */
+padding: 10px; /* Adds some padding */
+}
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+table {
+  width: 100%; /* Makes the table expand to the full width of its container */
+  border-collapse: collapse; /* Collapses the border to avoid double lines */
+  
+}
+
+th, td {
+  padding: 8px; /* Adds padding inside each cell for better readability */
+  text-align: left; /* Aligns text to the left; adjust as needed */
+  
+}
+
+.skill-cell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.skills {
+  text-align: right; /* Right-align text */
+  padding-top: 10px; /* Add top padding */
+  padding-bottom: 10px; /* Add bottom padding */
+  color: white; /* White text color */
+  flex-shrink: 0; /* Prevents the text from shrinking */
+}
+
+.skill-bar {
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  flex-grow: 1; 
+  margin-right: 10px;
+}
+
+.skill-level {
+  height: 30px;
+  background-color: #76c7c0;
+  border-radius: 8px;
+/* No text inside the skill-level div, so text-align and line-height are not necessary */
+}
+
+
+
+th {
+  background-color: #333; /* Dark background for headers */
+  color: white; /* White text color for contrast */
+  font-weight: bold; /* Makes the header text bold */
+}
+tr:hover {
+  background-color: #000000; /* Changes the background on hover */
+}
+.custom-table {
+    border-collapse: separate;
+    border-spacing: 10px; /* This replaces the cellspacing attribute */
+    width: 100%; /* Optional: Makes the table expand to the full width of its container */
+    /* Add any additional styling for your table here */
+}
+
+.custom-table td,
+.custom-table th {
+    padding: 8px; /* Adds padding inside each cell for better readability */
+    /* Additional cell styling */
+}
+
+
+.connect-with-me {
+  text-align: center;
+  padding: 20px;
+  background-color: #3c4344; /* Adjust the background color as needed */
+  font-style: italic; /* Makes the text italic */
+}
+
+.connect-with-me a {
+    display: inline-block;
+    margin: 0 15px;
+    color: #ffffff; /* Adjust the text/icon color as needed */
+    text-decoration: none;
+    font-size: 26px; /* Adjust the font size as needed */
+    transition: transform 0.3s ease-in-out;
+  }
+
+.connect-with-me a:hover {
+  transform: scale(1.2);
+    color: #777; /* Change color on hover */
+  }
+
+  .connect-with-me i {
+    margin-right: 8px; /* Space between icon and text */
+  }
+
+  
+
+
+
+
+
+
+
+
+.profile-picture {
+  width: 150px; /* Or your desired width */
+  height: auto; /* Keeps the aspect ratio of the image */
+  border: 10px solid #333; /* Solid border with a color of your choice */
+  display: block;
+}
+.profile-picture:hover {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite; /* The shake will happen only once on hover */
+}
+
+.bg-image {
+/* The image URL path should be correct */
+  background-image: url('mountains.jpg');
+  position: fixed;  /* Fixed position to cover the entire viewport */
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  filter: blur(50px);
+  -webkit-filter: blur(10px);
+  z-index: -1; /* Ensure it stays behind other content */
+}
+
+.biography-header {
+  text-align: center;
+  position: relative;
+  background-color: #000000e7; /* Change the color as needed */
+  padding: 10px 0;
+  width: 100%;
+}
+
+.biography-header h1 {
+  color: rgb(255, 255, 255);
+  display: inline-block;
+  margin: 0;
+  padding: 0 30px;
+  font-style: italic;
+  
+}
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: #333;
+    padding: 10px;
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 10px; /* Add padding for better click area */
+    border-radius: 5px; /* Optional: adds rounded corners */
+    transition: background-color 0.3s;
+}
+
+.navbar ul li a i {
+    margin-right: 8px; /* Spacing between icon and text */
+}
+.navbar ul li a:hover {
+  background-color: #7ceeb5; /* Dark background on hover */
+}
+
+/* Active link styling */
+.navbar ul li a.active {
+  background-color: #555; /* Different background for active item */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .navbar ul li a {
+        flex-direction: column; /* Stack icon and text vertically on smaller screens */
+  }
+
+    .navbar ul li a i {
+        margin-right: 0;
+        margin-bottom: 4px; /* Adjust spacing for vertical layout */
+    }
+}
+
+.game-development-section h3 {
+    text-align: center;
+    color: #fbfdff; /* A pleasant blue shade; adjust as needed */
+    margin-bottom: 20px; /* Adds some space below the heading */
+    font-size: 1.5em; /* Makes the heading larger */
+}
+
+.game-development-section ul {
+    list-style: none; /* Removes the default list styling */
+    padding: 0;
+    text-align: center;
+  }
+
+.game-development-section li {
+    display: inline-block; /* Display list items inline */
+    background-color: #2b2929; /* Light grey background for list items */
+    margin: 5px;
+    padding: 10px 15px;
+    border-radius: 15px; /* Rounded corners for the list items */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for 3D effect */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.game-development-section li:hover {
+    transform: translateY(-5px); /* Lifts the item on hover */
+    background-color: #e0e0e0; /* Changes background color on hover */
+}
+

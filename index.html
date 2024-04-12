@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title> Hyperlinks Knowledge</title>
+    <link rel="icon" type="image/x-icon" href="ico.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            position: relative;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fbfbfbeb;
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            background-attachment: fixed;
+            background-position: center center; 
+        }
+        .quote-description {
+            color: #000000; /* Change the color to blue */
+            font-family: Times, serif; /* Change the font type to Arial */
+            font-size: 18px; /* Adjust the font size as needed */
+            font-style: italic;
+        }
+        figure {
+            text-align: center; /* Centers the image and the caption */
+            margin: 20px; /* Adds margin around the figure */
+        }
+
+        .center-image {
+            width: auto; /* Adjust the width as necessary */
+            max-width: 100%; /* Ensures image is not bigger than its container */
+            height: auto; /* Keeps the aspect ratio of the image */
+            border: 3px solid #333; /* Adds a solid border */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for scale and shadow */
+        }
+
+        .center-image:hover {
+            transform: scale(1.05); /* Scales the image up slightly */
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5); /* Adds shadow for depth */
+        }
+
+        figcaption {
+            color: #555; /* Sets the color of the caption text */
+            font-size: 0.9em; /* Sets the size of the caption text */
+            margin-top: 8px; /* Adds space between the image and the caption */
+        }
+        #expandableContent {
+            background-color: #cfc2c2;
+            display: none;
+            padding: 20px;
+            border: 1px solid #000000;
+            margin-top: 10px;
+            border-radius: 10px; /* Rounded corners */
+        }
+        .theme-toggle {
+            display: block;
+            padding: 10px 15px;
+            margin: 10px auto;
+            text-align: center;
+            background-color: #f0f0f0;
+            color: #333;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background-color: #e0e0e0;
+            color: #000;
+        }
+
+        .theme-section {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .light-theme {
+            background-color: #fff;
+            color: #000;
+        }
+        .site-footer {
+            background-color: #706c6c; /* Sets the background color to grey */
+            color: rgb(0, 0, 0); /* Sets the text color to white */
+            text-align: center; /* Centers the text within the footer */
+            padding: 20px 0; /* Adds padding above and below the text */
+            position: sticky; /* Fixes the footer at the bottom of the page */
+            left: 0; /* Aligns the footer to the left edge of the page */
+            margin: 0 auto; /* Center the footer */
+     
+            
+            width: 100%; /* Ensures the footer extends across the full width of the page */
+        }
+
+        .dark-theme {
+            background-color: #333;
+            color: #fff;
+        }
+        nav {
+            display: flex;
+            justify-content: center; /* Center the items in the flex container */
+            background-color: #333;
+            
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0; /* Remove default margin */
+            display: flex;
+            align-items: center; /* Align items vertically in the center */
+            flex-wrap: nowrap; 
+            
+        }
+        nav li {
+            display: inline; /* Display list items inline */
+            margin-right: 140px; /* Add some space between the menu items */
+        }
+        nav a {
+            text-decoration: none; /* Remove underline from links */
+            font-size: 24px; /* Increase the font size */
+            color: rgb(238, 235, 235); /* Set text color */
+            padding: 1px 7px;
+            font-family: 'Open Sans', Arial, sans-serif; /* Decent, formal font-family */
+            font-style: normal; /* Ensures the font is not italic */
+        }
+
+        .game-container {
+            width: 86vw; /* Same width as the game area to maintain alignment */
+            margin: auto; /* Center the container */
+            position: relative; /* Needed for absolute positioning within */
+            text-align: center; /* Center text for the title */
+        }
+        #gameArea {
+            width: 100%; /* Take the full width of the container */
+            height: 50vh;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid #333; /* Add a border to represent the wall */
+            box-sizing: border-box;
+            background-color: #9acff3;
+          
+        }
+
+        #ball {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            transition: background-color 0.1s, transform 0.1s;
+            background-color: #3498db; 
+            
+            background-image: url('10.jpg');
+            background-size: cover;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        h3 {
+            color: #dddada;
+            justify-content: flex-start;
+            text-align: center; 
+            background-image: url('3523311.jpg');
+            padding: 20px 0; 
+            background-size: cover; /* Ensure the background covers the entire title area */
+            background-position: center; 
+            background-repeat: no-repeat;
+            margin: 0; 
+            width: 100%; 
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3em;
+            font-weight: 700;
+            text-align: center;
+            -webkit-text-stroke: 2px rgb(167, 127, 127); 
+            text-shadow:
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000; 
+        }
+      
+
+        .answer {
+            display: none;
+            padding: 5px;
+            margin-top: 5px;
+            background-color: #868080;
+            border-left: 5px solid #ccc;
+        }
+        .code-highlight {
+            background-color: #333; /* dark background */
+            color: #0cfc54; /* light text */
+            border: 1px solid #fff; /* optional: adds a border around the code */
+            display: flex; /* enables flexbox */
+            align-items: left; /* centers content vertically */
+            justify-content: left; /* centers content horizontally */
+            padding: 10px; /* adds padding inside the code block */
+            margin: 0 auto; /* adds spacing above and below the code block and centers it */
+            font-family: 'Courier New', monospace; /* gives the text a typewriter-like appearance */
+            font-size: 18px; /* adjusts the size of the text */
+            border-radius: 10px; /* rounded corners for the code block */
+            width: fit-content; /* adjust width to fit the content */
+            min-width: 100%; /* ensures the block stretches full width */
+            height: auto; /* ensures the block height fits content */
+        }
+        #quoteText {
+            font-family: 'Times New Roman', Times, serif; /* Example font */
+            font-size: 20px; /* Example size */
+            font-style: italic; /* Example style */
+        }
+        #quoteContainer {
+            padding: 80px;
+            border: 5px solid #000000;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        #newQuoteButton {
+            display: block; /* Makes the button a block-level element */
+            margin: 0 auto; /* Centers the button horizontally */
+            background-color: #4CAF50; /* Sets the background color of the button */
+            color: white; /* Sets the text color of the button */
+            padding: 10px 20px; /* Adds padding inside the button */
+            border: none; /* Removes the border */
+            cursor: pointer; /* Changes the cursor to a pointer when hovering over the button */
+            border-radius: 5px; /* Adds rounded corners to the button */
+            text-align: center; /* Ensures the text is centered within the button */
+        }
+
+      
+
+        #quoteAuthor {
+            font-family: Times, sans-serif;
+            text-align: right;
+            font-size: 20px;
+        }
+        a:hover {
+            color: #3498db;
+            text-decoration: underline;
+            background-color: #f2f2f2;
+        }
+        a:active {
+            color: #e74c3c;
+        }
+        a:focus {
+            outline: 2px dashed #3498db;
+        }
+
+        a {
+            transition: all 0.3s ease;
+            font-style: italic;
+        }
+
+        
+        section h2 {
+            font-size: 25px; 
+        }
+        .content-container {
+            max-width: 1200px; /* This sets the maximum width of the content area. Adjust as needed. */
+            margin: 0 auto; /* This centers the container in the parent element. */
+            padding: 0 80px;
+            margin-bottom: 0; 
+        }
+        
+
+        .interactive-example {
+            background-color: #d60d0d;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        #play-button {
+            position: absolute;
+            top: 10px; /* Adjust the value to move the button down a bit */
+            left: 10px; /* Adjust the value to move the button right a bit */
+            padding: 10px 20px;
+            font-size: 1em;
+            color: white;
+            background-color: #000000b2;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #play-button:hover {
+            background-color: #6180a1;
+        }
+        .center-image {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 70%; /* Adjust the width as necessary */
+            border-radius: 20px;
+        }
+        h1 {
+            color: #FFFFFF;
+            justify-content: space-between;
+            text-align: center; 
+            background-image: url('3523311.jpg');
+            padding: 20px 0; 
+            background-size: cover; /* Ensure the background covers the entire title area */
+            background-position: center; 
+            background-repeat: no-repeat;
+            margin: 0; 
+            width: 100%; 
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4em;
+            font-weight: 700;
+            text-align: center;
+            -webkit-text-stroke: 1px black; 
+            text-shadow:
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000; 
+        }
+
+        .hidden-content {
+            display: none;
+            /* Styles for hidden content */
+        }
+
+        .visible-content {
+            display: block;
+            /* Styles for visible content */
+        }
+        @keyframes fadeInSlideRight {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }   
+
+        .author-name, .publish-date {
+            display: block; /* Each element takes up a full line */
+            text-align: left;
+            color: #333; /* Dark grey for a more formal look */
+            margin: 0; /* Aligns with the removal of margin in h1 */
+            padding: 5px 0; /* Adds padding above and below */
+            font-family: 'Open Sans', sans-serif; /* Choose a formal-looking font */
+            animation: fadeInSlideRight 1s ease forwards; /* Apply the animation */
+        }
+
+        .author-name {
+            font-size: 1.25em; /* Adjust size as needed */
+            font-weight: bold; /* Make it bold */
+        }
+
+        .publish-date {
+            font-size: 1em; /* Keep the publish date smaller */
+            color: #666; /* Lighter grey for contrast */
+        }
+        figure {
+            text-align: center; /* Centers the image and the caption */
+        }
+
+        figcaption {
+            color: #555; /* Sets the color of the caption text */
+            font-size: 0.9em; /* Sets the size of the caption text */
+            margin-top: 8px; /* Adds space between the image and the caption */
+        }
+    </style>
+   
+
+
+<body>
+    <header>
+        <h1> Hyperlinks Knowledge </h1>
+        <nav>
+            <ul>
+              <li><a aria-current="page" href="index.html"><strong>Conception</strong></a></li>
+              <li><a href="History.html"><strong>History</strong></a></li>
+              <li><a href="Biography.html"><strong>Biography</strong></a></li>
+            </ul>
+          </nav>
+        <p class="author-name"><strong>Author:</strong> Brandon Ge</p> <!-- Add the author's name here -->
+        <p class="publish-date"><strong>Published on:</strong> April 6, 2024, at 10:00 AM</p> 
+        <button id="play-button" aria-label="Play background music"><i class="fa fa-play"></i></button>
+        
+
+        <audio id="bgm" loop>
+            <source src="16.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+
+        <figure>
+            <img src="88.jpg" alt="Descriptive Image Text" class="center-image">
+            <figcaption>A web browser's address bar Credits:JMiks.</figcaption>
+        </figure>
+
+
+
+    </header>
+
+    <section class="content-container">
+            <h2 id="First">What is a Hyperlink?</h2>
+            <p>
+                Hyperlinks, commonly referred to as "links," are references or navigational elements found in electronic documents. They enable users to seamlessly navigate from one section of a document to another, or even to an entirely different document, with just a single click or tap. These links serve as the foundation of the World Wide Web and are essential for its interconnected nature.
+            </p>
+            <p>From a technical standpoint, hyperlinks are created using HTML (HyperText Markup Language), the standard language for creating web pages. In HTML, a hyperlink is coded using an anchor tag ('&lt;a&gt;'). This tag includes the href attribute (hypertext reference) which specifies the destination of the link. The destination could be a URL (Uniform Resource Locator) leading to another webpage, a file, an email address, or a location within the same page.</p>
+            <h2>How Browsers Handle Hyperlinks</h2>
+            <p>
+                When a user clicks on a hyperlink, 
+                the browser will analyze the href attribute of the anchor tag and 
+                send an HTTP GET request to the designated URL. The server will then provide the requested page or resource, which will be displayed by the browser for the user. This process is essential for navigating through websites and accessing various web pages, documents, images, videos, and other online content. It allows users to seamlessly move from one webpage to another and access information from different sources across the internet. Additionally, this technology has greatly contributed to the interconnected nature of modern society by enabling easy access to a vast array of digital resources.
+                
+            </p>
+
+            <figure>
+            <img src="99.jpg" alt="Browser Hyperlink Process"  class="center-image">
+            <figcaption>Navigating Through Connectivity and Innovation. Credits:Arthon .</figcaption>
+            </figure>
+
+            <p>Here above is more intuitive and straightforward illustration showing how a web browser processes a hyperlink click. This figure is represents the sequence of events, from a user clicking on a hyperlink in a browser, the browser sending a request to a server, the server processing the request, 
+                and then sending a response back to the browser, culminating in the browser displaying a new webpage. </p>          
+       
+    
+
+
+        <h2> Examples of Hyperlinks:</h2>
+        <p>
+            <strong>(1) External Link:</strong><br> Web developers implement hyperlinks using the anchor tag (&lt;a&gt;). The 'href' (hypertext reference) attribute within the anchor tag specifies the URL or path to the resource or section the link points to.
+        </p>
+        <pre><code class="code-highlight">
+            &lt;a href="https://wikipedia.com" target="_blank"&gt;Visit Example to Google&lt;/a&gt;
+            </code></pre>
+        <p>
+            When a user clicks this link, <a href="https://Google.com" target="_blank"> Hyperlink to Google </a>  the browser makes an HTTP request to the specified URL, loading the new page.
+        </p>
+
+        <p> <strong>(2) Internal Link:</strong><br>To demonstrates how to create an internal link on a webpage, which allows users to jump directly to different sections within the same page. This is especially useful for improving navigation on pages.</p>
+        <pre><code class="code-highlight">
+            &lt;a href="#section1" > Go to Section 1/a&gt;
+            </code></pre>
+        <p>
+        <a href="#First">Go to First Paragraph</a> When a visitor to webpage and clicks "Go to First Paragraph," the browser will scroll to the part of the page where the 'h2' with the first Paragraph is located.
+        </p>
+
+        <p> <strong>(3) Email Link:</strong><br>This will opens the default email program with a new message addressed to the specified author email</p>
+        <pre><code class="code-highlight">
+            &lt;a href="mailto:tersorbeauge@gmail.com">Email Author/a&gt;
+            </code></pre>
+        <p>
+        <a href="mailto:tersorbeauge@gmail.com">Email Author</a> By using 'mailto:' links, it provide a convenient way for users to initiate email communications directly from a web page, enhancing the overall user experience and facilitating easier contact through email.
+        </p>
+
+        <p> <strong>(4) Telephone Link:</strong><br>When clicked on a device capable of making calls, this initiates a phone call.</p>
+        <pre><code class="code-highlight">
+            &lt;a href="tel:+0423115155">Call Us /a&gt;
+            </code></pre>
+        <p>
+            <a href="tel:+0423115155">Call Us</a> To implement 'tel:' links, web developers provide a user-friendly method for site visitors to initiate phone calls, making it particularly advantageous for websites that aim to drive customer engagement through direct communication.
+        </p>
+
+        <p> <strong>(5) Download Link:</strong><br>To instructs the browser to download the linked resource rather than navigating to it.</p>
+        <pre><code class="code-highlight">
+            &lt;a href="path/to/document.pdf" download>Download PDF /a&gt;
+            </code></pre>
+        <p>
+            <a href="research-paper.pdf" download="CustomFileName.pdf">Download PDF </a>  To offer a straightforward way for users to acquire digital resources from their website, enhancing the user experience by simplifying the process of downloading files.
+        </p>
+
+        <p> <strong>(6) Interactive FAQ Sections:</strong><br>To implement 'toggleAnswer' function is triggered. This function checks the current state of the answer's display property. If the answer is hidden, it becomes visible, and vice versa.</p>
+        <pre><code class="code-highlight">
+            &lt;a href="#!" onclick="toggleAnswer('answer1');"  /a&gt;
+            </code></pre>
+            <p>
+                <a href="#!" onclick="toggleAnswer('answer1');">What attributes are commonly used in a hyperlink tag and what are their purposes?</a>
+                <span id="answer1" class="answer">
+                    The <code>&lt;a&gt;</code> tag can include several attributes, but the most common ones are <code>href</code> (specifies the link's destination), <code>target</code> (defines where to open the linked document), <code>rel</code> (specifies the relationship between the current document and the linked one), and <code>title</code> (provides additional information about the link).
+                </span>
+            </p>
+            <p>To enhances user engagement by allowing users to access additional information with question on demand.It's a user-centric approach to content presentation, providing details only when the user seeks them. </p>
+
+        <p> <strong>(7) Dynamically Changing Hyperlink:</strong><br>To create a simple interactive example where clicking a button changes the destination of a hyperlink.</p>
+        <pre><code class="code-highlight">
+            &lt;a id="dynamicLink" href="https://www.wikipedia.org/">Visit Wikipedia /a&gt;
+            &lt;button onclick="changeLink()">Change Destination /button&gt;
+            </code></pre>
+        <p>
+            <a id="dynamicLink" href="https://www.wikipedia.org">Visit Wikipedia</a>
+            <button onclick="changeLink()">Change Destination</button>  To demonstrates how to alter webpage elements, enhancing user interactivity and showing flexible and responsive in web design.
+        </p>
+
+        
+
+        
+
+        <p> <strong>(8) Changes The Theme:</strong><br> By using "toggle switch" hyperlink that changes the theme of a section of the website. It can be used to switch from a light to a dark theme.</p>
+        <pre><code class="code-highlight">
+            &lt;a href="#!" id="themeToggle" class="theme-toggle">Switch to Dark Theme /a&gt;
+            </code></pre>
+
+        
+            <!-- Toggle Switch Hyperlink -->
+            <a href="#!" id="themeToggle" class="theme-toggle">Switch to Dark Theme</a>
+            <!-- Section with dynamic theme -->
+            <div id="themeSection" class="theme-section light-theme">
+                <p>Here is example content that will change theme when the toggle is clicked.</p>
+            </div>
+            <p>
+             To demonstrates how a hyperlink can be used to interactively change the appearance of a webpage section, 
+             enhancing the user's experience by providing them with control over the display of content.</p>
+
+        <p> <strong>(9) Expandbale The Content:</strong><br> A content box that expands and collapses when user click a link, it is a common pattern for dropdown content.</p>
+        <pre><code class="code-highlight">
+            &lt;a href="#" id="toggleContent">Show More /a&gt;
+                $('#expandableContent').slideToggle(500, function(){ 
+                $('#toggleContent').text($(this).is(':visible') ? 'Show Less' : 'Show More');
+            });
+            </code></pre>
+        
+            <a href="#" id="toggleContent">Show More</a>
+            <div id="expandableContent" style="display: none; padding: 20px; border: 1px; margin-top: 10px;">
+                <p>This is some expandable content. Click "Show More" to expand and "Show Less" to collapse.</p>
+            </div>
+            <p>To create interactive content sections that users can expand or collapse with a smooth animation effect through Jquery, enhancing the user experience on the webpage.
+        </p>
+
+
+        
+        <p> <strong>(10) Quote</strong><br>
+          
+                <div id="quoteContainer">
+                    <p id="quoteText">Loading...</p>
+                    <p id="quoteAuthor"></p>
+                </div>
+                <button id="newQuoteButton">Get New Quote</button>
+            </p>
+            
+                
+        
+            
+
+        
+        <p class="quote-description"> The above quote is Created through AJAX request initiated by JavaScript that fetches new data from the API 
+            and updates the content without needing to reload the entire page. To enhances user experience by providing dynamic interaction.
+        </p>
+
+        <p> <strong> GAME SECTION</strong><br></p>
+        
+            <div class="game-container">
+            <h3>Try To Catch Ball</h3>
+            
+            <div id="gameArea">
+                <div id="ball"></div>
+                <p>Score: <span id="score">0</span></p>
+                
+            </div>
+            </div>
+            <script src="script.js"></script>
+        
+
+        <p class="quote-description">  In this game, a "ball"will move across the screen, and the user needs to click on it to "catch" it. When the ball is clicked, it'll move to a new random position.Through the simple catch the ball game to shows basic animation and interaction between the user. While this game is quite basic, 
+            similar principles can be applied to create more complex and interactive animations and games in the future.</p>
+        
+        
+    </section>
+
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var bgm = document.getElementById('bgm');
+            var playButton = document.getElementById('play-button');
+            var icon = playButton.querySelector('i');
+
+            playButton.addEventListener('click', function() {
+                if (bgm.paused) {
+                    bgm.play();
+                    icon.className = 'fa fa-pause'; // Change to pause icon
+                } else {
+                    bgm.pause();
+                    icon.className = 'fa fa-play'; // Change to play icon
+                }
+            });
+        });
+
+
+        
+    </script>
+
+    <script>
+        function toggleAnswer(elementId) {
+            var element = document.getElementById(elementId);
+            if (element.style.display === 'none' || element.style.display === '') {
+                element.style.display = 'block';
+            } else {
+                element.style.display = 'none';
+            }
+        }
+    </script>
+
+    <script>
+        document.getElementById('newQuoteButton').addEventListener('click', fetchNewQuote);
+
+        function fetchNewQuote() {
+         fetch('https://api.quotable.io/random')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('quoteText').textContent = `"${data.content}"`;
+                    document.getElementById('quoteAuthor').textContent = `- ${data.author}`;
+                })
+                .catch(error => {
+                    console.error('Error fetching quote:', error);
+                    document.getElementById('quoteText').textContent = 'An error occurred while fetching a new quote.';
+                    document.getElementById('quoteAuthor').textContent = '';
+                });
+        }
+
+        fetchNewQuote();
+
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+    <script>
+        function changeLink() {
+            var link = document.getElementById('dynamicLink');
+            link.href = "https://www.w3schools.com/";
+            link.textContent = "Visit W3schools Site";
+        }
+    </script>
+    <script>document.getElementById('themeToggle').addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent the default anchor action
+        var section = document.getElementById('themeSection');
+        if (section.classList.contains('light-theme')) {
+            section.classList.remove('light-theme');
+            section.classList.add('dark-theme');
+            this.textContent = 'Switch to Light Theme'; // Update the link text
+        } else {
+            section.classList.remove('dark-theme');
+            section.classList.add('light-theme');
+            this.textContent = 'Switch to Dark Theme'; // Update the link text
+        }
+    });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#toggleContent').click(function(event) {
+                event.preventDefault();
+                $('#expandableContent').slideToggle(500, function() {
+                $('#toggleContent').text($(this).is(':visible') ? 'Show Less' : 'Show More');
+            });
+        });
+    });
+    </script>
+
+    <script>
+
+    function hitWallEffect() {
+        ball.style.backgroundColor = '#ff0000'; // Change to red upon collision
+        ball.style.transform = 'scale(1.2)'; // Make the ball larger to indicate a hit
+        setTimeout(() => {
+            ball.style.backgroundColor = ''; // Revert color back to original
+            ball.style.transform = ''; // Revert scale back to normal
+        }, 100); // Duration of the effect in milliseconds  
+    }
+        let ball = document.getElementById('ball');
+        let scoreDisplay = document.getElementById('score');
+        let score = 0;
+        let dx = 2; // Change in position along X-axis
+        let dy = 2; // Change in position along Y-axis
+
+        function moveBall() {
+            let x = ball.offsetLeft + dx;
+            let y = ball.offsetTop + dy;
+            // Adjust calculations to consider the game area's border
+            let gameAreaBorderWidth = parseInt(getComputedStyle(gameArea).borderWidth, 10);
+
+        // Check for wall collisions considering the border
+            if (x <= gameAreaBorderWidth || x >= gameArea.offsetWidth - ball.offsetWidth - gameAreaBorderWidth) {
+                dx = -dx;
+                hitWallEffect(); 
+            }
+            if (y <= gameAreaBorderWidth || y >= gameArea.offsetHeight - ball.offsetHeight - gameAreaBorderWidth) {
+                dy = -dy;
+                hitWallEffect();
+            }
+
+    // Move the ball
+            ball.style.left = x + 'px';
+            ball.style.top = y + 'px';
+
+            requestAnimationFrame(moveBall);
+        }
+
+        ball.addEventListener('click', () => {
+            score++;
+            scoreDisplay.textContent = score;
+            dx *= 1.1; // Increase speed
+            dy *= 1.1;
+        });
+
+        moveBall(); // Start the animation
+
+
+
+    
+    </script>
+
+
+
+
+    <footer class="site-footer">
+        © 2024 Coded with interest by Brandon Ge
+    </footer>
+
+        
+    
+</body>
+</html>
